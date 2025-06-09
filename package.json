@@ -1,5 +1,5 @@
 {
-  "name": "electron-quick-start-typescript",
+  "name": "task-manager",
   "version": "1.0.0",
   "description": "Windows-like Task Manager For Linux Mint (A minimal Electron application written with Typescript)",
   "main": "dist/main.js", 

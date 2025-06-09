@@ -146,5 +146,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateCpuInfo();
-    setInterval(updateCpuInfo, 1000);
+    setInterval(updateCpuInfo, 2000);
 });
