@@ -1,0 +1,142 @@
+/* src/styles.css */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 20px;
+    background-color: #2e2e2e; /* Темный фон */
+    color: #eee; /* Светлый текст */
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #a0a0a0; /* Более светлый серый для заголовков */
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+.header-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444; /* Разделитель */
+}
+
+.processes-section {
+    background-color: #383838; /* Фон для секции процессов */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Небольшая тень */
+}
+
+.processes-table {
+    border: 1px solid #555; /* Граница вокруг таблицы */
+    border-radius: 4px;
+    overflow: hidden; /* Обрезка содержимого, если оно выходит за границы */
+}
+
+.table-header {
+    display: flex; /* Используем Flexbox для колонок */
+    padding: 10px 15px;
+    background-color: #4c4c4c; /* Фон заголовка таблицы */
+    font-weight: bold;
+    border-bottom: 1px solid #555;
+}
+
+/* Стили для кликабельных заголовков колонок */
+.col-header {
+    flex: 1; /* Базовое распределение, будет переопределено конкретными колонками */
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Указатель курсора при наведении */
+    user-select: none; /* Запрет выделения текста */
+    padding-right: 5px; /* Небольшой отступ справа для иконки */
+}
+/* Переопределяем flex для конкретных колонок */
+.col-name { flex: 4; }
+.col-pid { flex: 1.5; justify-content: flex-end; } /* Выравнивание содержимого по правому краю */
+.col-cpu { flex: 1.5; justify-content: flex-end; }
+.col-mem { flex: 1.5; justify-content: flex-end; }
+
+/* Стиль для индикатора сортировки (стрелка) */
+.sort-indicator {
+    margin-left: 5px;
+    font-size: 0.8em;
+    opacity: 0.5; /* Скрываем по умолчанию */
+}
+
+.sort-indicator.asc::before {
+    content: ' ▲'; /* Стрелка вверх для возрастающей сортировки */
+    opacity: 1;
+}
+
+.sort-indicator.desc::before {
+    content: ' ▼'; /* Стрелка вниз для убывающей сортировки */
+    opacity: 1;
+}
+
+#processes-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+}
+
+#processes-list li {
+    display: flex; /* Flexbox для каждой строки процесса */
+    padding: 8px 15px;
+    border-bottom: 1px solid #444; /* Разделитель между строками */
+    align-items: center; /* Выравнивание элементов по центру вертикали */
+}
+
+#processes-list li:last-child {
+    border-bottom: none; /* Убираем нижнюю границу у последнего элемента */
+}
+
+#processes-list li:nth-child(even) {
+    background-color: #333; /* Чередующийся фон для строк */
+}
+
+#processes-list li:hover {
+    background-color: #555; /* Эффект при наведении */
+    cursor: pointer;
+}
+
+/* Стили для отдельных колонок в элементах списка (должны совпадать с .table-header) */
+#processes-list li span {
+    white-space: nowrap; /* Запрет переноса текста */
+    overflow: hidden; /* Скрытие текста, который не помещается */
+    text-overflow: ellipsis; /* Добавление многоточия, если текст обрезан */
+}
+
+#processes-list li .process-name { flex: 4; }
+#processes-list li .process-pid { flex: 1.5; text-align: right; }
+#processes-list li .process-cpu { flex: 1.5; text-align: right; }
+#processes-list li .process-mem { flex: 1.5; text-align: right; }
+
+/* src/styles.css */
+
+/* ... (ваш текущий код) ... */
+
+/* Стили для полосы прокрутки в WebKit-браузерах (Electron) */
+
+/* Общая стилизация полосы прокрутки */
+::-webkit-scrollbar {
+  width: 3px; /* Ширина полосы прокрутки */
+}
+
+/* Фон полосы прокрутки */
+::-webkit-scrollbar-track {
+  background: transparent; /* Делаем фон прозрачным */
+}
+
+/* Ползунок прокрутки */
+::-webkit-scrollbar-thumb {
+  background-color: #000000; /* Чёрный цвет */
+  border-radius: 0px; /* Прямоугольные углы */
+  border: none; /* Без рамки */
+}
+
+/* При наведении на ползунок прокрутки (опционально) */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #333333; /* Чуть светлее при наведении */
+}

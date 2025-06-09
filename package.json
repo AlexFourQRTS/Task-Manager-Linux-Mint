@@ -1,12 +1,68 @@
 {
-  "name": "task-manager-linux-mint",
+  "name": "electron-quick-start-typescript",
   "version": "1.0.0",
-  "description": "Task Manager like windows but for Linux Mint",
-  "main": "index.js",
+  "description": "Windows-like Task Manager For Linux Mint (A minimal Electron application written with Typescript)",
+  "main": "dist/main.js", 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:tsc": "tsc", 
+    "watch": "tsc -w",
+    "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "start": "npm run build:tsc && electron ./dist/main.js",
+    "pack": "npm run build:tsc && electron-builder --dir", 
+    "dist": "npm run build:tsc && electron-builder" 
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo",
+    "typescript",
+    "Task Manager",
+    "Linux Mint",
+    "system monitoring"
+  ],
+  "author": "BrahmaDzen <xvergox@gmail.com>",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@types/systeminformation": "^3.23.1",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",  
+    "eslint": "^7.32.0",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "path": "^0.12.7",
+    "systeminformation": "^5.27.1"
+  },
+  "build": {
+    "appId": "com.yourcompany.taskmanager", 
+    "productName": "Linux Mint Task Manager", 
+    "directories": {
+      "output": "release" 
+    },
+    "files": [
+      "dist/**/*", 
+      "index.html",
+      "styles.css",
+      "package.json",
+      "node_modules/**/*" 
+    ],
+    "linux": {
+      "target": ["AppImage", "deb"], 
+      "category": "Utility", 
+      "icon": "build/icons/icon.png" 
+    },
+    "win": {
+      "target": "nsis", 
+      "icon": "build/icons/icon.ico" 
+    },
+    "mac": {
+      "target": "dmg", 
+      "icon": "build/icons/icon.icns" 
+    }
+  }
 }
