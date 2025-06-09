@@ -1,0 +1,12 @@
+{
+  "name": "task-manager-linux-mint",
+  "version": "1.0.0",
+  "description": "Task Manager like windows but for Linux Mint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
