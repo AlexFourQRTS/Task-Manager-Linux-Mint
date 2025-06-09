@@ -1,4 +1,4 @@
-// src/main.ts
+
 import { app, BrowserWindow, ipcMain } from 'electron';
 const path = require('path');
 
@@ -24,15 +24,14 @@ const createWindow = () => {
     autoHideMenuBar: true,
   });
   mainWindow.loadFile(path.join(__dirname, '../index.html'));
-  // mainWindow.webContents.openDevTools();
 };
 
-// ОБРАБОТЧИКИ IPC В ГЛАВНОМ ПРОЦЕССЕ
+
 ipcMain.handle('get-current-cpu-load', async () => {
   return getCurrentCpuLoad();
 });
 
-// НОВЫЙ ОБРАБОТЧИК ДЛЯ ПОЛНОЙ ИНФОРМАЦИИ О ЦП
+
 ipcMain.handle('get-full-cpu-load-info', async () => {
     return getFullCpuLoadInfo();
 });
@@ -52,12 +51,4 @@ app.on('activate', () => {
 });
 
 
-// src/main.ts
-// import { app, BrowserWindow, ipcMain } from 'electron';
-// const path = require('path');
-
-// Импортируем наши новые модули
-
-
-// ... (остальной код)
 

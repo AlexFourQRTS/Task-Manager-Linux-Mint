@@ -1,8 +1,4 @@
-// src/renderer.ts
 
-// Определяем интерфейс IElectronAPI и IFullCpuLoadInfo прямо здесь
-// или убеждаемся, что они доступны глобально.
-// Для простоты, определим их здесь.
 interface IFullCpuLoadInfo {
     currentLoad: number;
     cpuCount: number;
@@ -19,11 +15,7 @@ interface IElectronAPI {
     getFullCpuLoadInfo: () => Promise<IFullCpuLoadInfo>; // Обновлено
 }
 
-// src/renderer.ts
 
-// ... (интерфейсы IFullCpuLoadInfo и IElectronAPI остаются)
-
-// Глобальные переменные для состояния сортировки
 let currentSortColumn: 'name' | 'pid' | 'cpuPercent' | 'memPercent' = 'cpuPercent';
 let sortDirection: 'asc' | 'desc' = 'desc';
 
@@ -34,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Создаем всю структуру HTML динамически
     appContainer.innerHTML = `
         <div class="header-section">
             <h1>Монитор Загрузки ЦП</h1>
@@ -58,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // Теперь получаем ссылки на элементы, которые были только что созданы
+
     const cpuLoadElement = document.getElementById('cpu-load-display');
     const cpuCountElement = document.getElementById('cpu-count-display');
     const processesListElement = document.getElementById('processes-list');
@@ -154,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Первоначальный вызов и интервал
     updateCpuInfo();
     setInterval(updateCpuInfo, 1000);
 });

@@ -11,7 +11,7 @@
     "pack": "npm run build:tsc && electron-builder --dir", 
     "dist": "npm run build:tsc && electron-builder" 
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "repository": "https://github.com/AlexFourQRTS/Task-Manager-Linux-Mint/tree/main",
   "keywords": [
     "Electron",
     "quick",
