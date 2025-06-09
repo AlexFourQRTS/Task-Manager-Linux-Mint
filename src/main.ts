@@ -1,8 +1,9 @@
-
+// src/main.ts
 import { app, BrowserWindow, ipcMain } from 'electron';
 const path = require('path');
 
-import { getCurrentCpuLoad, getFullCpuLoadInfo } from './modules/cpu'; // <-- НОВЫЙ ИМПОРТ
+// Убедитесь, что импорт правильный (новое имя функции и файла)
+import { getCurrentCpuLoad, getSystemOverviewInfo } from "./modules/cpu/index"
 
 if (process.platform === 'win32') {
   if (require('electron-squirrel-startup')) {
@@ -24,16 +25,17 @@ const createWindow = () => {
     autoHideMenuBar: true,
   });
   mainWindow.loadFile(path.join(__dirname, '../index.html'));
+  // mainWindow.webContents.openDevTools();
 };
 
-
-ipcMain.handle('get-current-cpu-load', async () => {
+// ОБНОВЛЕННЫЕ ОБРАБОТЧИКИ IPC В ГЛАВНОМ ПРОЦЕССЕ
+ipcMain.handle('get-current-cpu-load', async () => { // Если вы еще используете эту функцию где-то отдельно
   return getCurrentCpuLoad();
 });
 
-
-ipcMain.handle('get-full-cpu-load-info', async () => {
-    return getFullCpuLoadInfo();
+// НОВЫЙ ОБРАБОТЧИК ДЛЯ ПОЛНОЙ ИНФОРМАЦИИ О СИСТЕМЕ
+ipcMain.handle('get-system-overview-info', async () => {
+    return getSystemOverviewInfo();
 });
 
 app.on('ready', createWindow);
@@ -49,6 +51,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-
-
