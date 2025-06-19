@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "path": "^0.12.7",
-    "systeminformation": "^5.27.1"
+    "systeminformation": "^5.27.5"
   },
   "build": {
     "appId": "com.yourcompany.taskmanager", 
